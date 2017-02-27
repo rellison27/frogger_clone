@@ -54,7 +54,13 @@ Player.prototype.render = function() {
 
 Player.prototype.handleInput = function (input) {
   if (input === "right") {
-    this.x = this.x + 50;
+    this.x = this.x + 90;
+  } else if (input === "left") {
+    this.x = this.x - 90
+  } else if (input === "up") {
+    this.y = this.y - 90
+  } else if (input === "down") {
+    this.y = this.y + 90
   }
 };
 
