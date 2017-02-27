@@ -35,13 +35,13 @@ Enemy.prototype.render = function() {
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
-var allEnemies = [new Enemy (200, 100, 150), new Enemy (200, 60, 100), new Enemy (220, 150, 300)];
+var allEnemies = [new Enemy (200, 50, 150), new Enemy (200, 220, 100), new Enemy (220, 150, 300)];
 // Place the player object in a variable called player
 var Player = function() {
 
     this.sprite = 'images/char-boy.png';
     this.x = 200;
-    this.y = 200;
+    this.y = 300;
 };
 
 
