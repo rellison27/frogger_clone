@@ -46,21 +46,21 @@ var Player = function() {
 
 
 Player.prototype.update = function () {
-
+  
 };
 Player.prototype.render = function() {
   ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
 Player.prototype.handleInput = function (input) {
-  if (input === "right" && player.x <= 400) {
-      this.x = this.x + 70;
-  } else if (input === "left" && player.x >= 0) {
-    this.x = this.x - 70
-  } else if (input === "up" && player.y >= 20) {
-    this.y = this.y - 60
-  } else if (input === "down" && player.y <= 400) {
-    this.y = this.y + 60
+  if (input === "right" && player.x <= 300) {
+      this.x = this.x + 100;
+  } else if (input === "left" && player.x >= 100) {
+    this.x = this.x - 100
+  } else if (input === "up" && player.y >= 0) {
+    this.y = this.y - 80
+  } else if (input === "down" && player.y <= 300) {
+    this.y = this.y + 80
   }
 };
 
