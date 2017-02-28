@@ -53,14 +53,14 @@ Player.prototype.render = function() {
 };
 
 Player.prototype.handleInput = function (input) {
-  if (input === "right") {
-    this.x = this.x + 90;
-  } else if (input === "left") {
-    this.x = this.x - 90
-  } else if (input === "up") {
-    this.y = this.y - 90
-  } else if (input === "down") {
-    this.y = this.y + 90
+  if (input === "right" && player.x <= 400) {
+      this.x = this.x + 70;
+  } else if (input === "left" && player.x >= 0) {
+    this.x = this.x - 70
+  } else if (input === "up" && player.y >= 20) {
+    this.y = this.y - 60
+  } else if (input === "down" && player.y <= 400) {
+    this.y = this.y + 60
   }
 };
 
