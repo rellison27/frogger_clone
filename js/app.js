@@ -45,8 +45,41 @@ var Player = function() {
 };
 
 
+Player.prototype.collision = function() {
+  /* self is here to make sure this refers to the player prototype and not the
+  forEach loop */
+  var self = this;
+
+  //this represents my players box
+  var playerRect = {x: this.x, y: this.y, width: 50, height: 50};
+  // this is here to set up a box for all of the enemies inside of the array.
+
+  allEnemies.forEach(function(enemy) {
+    //this is the enemy box
+    var enemyRect = {x: enemy.x, y: enemy.y, width: 50, height: 50};
+
+    /* this is code I retrieved from https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
+    this code will detect collisions and will reset the characters position. */
+    if (playerRect.x < enemyRect.x + enemyRect.width &&
+       playerRect.x + playerRect.width > enemyRect.x &&
+       playerRect.y < enemyRect.y + enemyRect.height &&
+       playerRect.height + playerRect.y > enemyRect.y) {
+        // collision detected - reset Player
+        self.reset();
+    }
+
+ });
+
+};
+
+Player.prototype.reset = function() {
+  this.x = 200;
+  this.y = 300;
+};
+
 Player.prototype.update = function () {
-  
+  player.collision();
+
 };
 Player.prototype.render = function() {
   ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
@@ -54,7 +87,7 @@ Player.prototype.render = function() {
 
 Player.prototype.handleInput = function (input) {
   if (input === "right" && player.x <= 300) {
-      this.x = this.x + 100;
+      this.x = this.x + 100
   } else if (input === "left" && player.x >= 100) {
     this.x = this.x - 100
   } else if (input === "up" && player.y >= 0) {
