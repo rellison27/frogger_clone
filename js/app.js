@@ -1,4 +1,6 @@
 // Enemies our player must avoid
+// This is a function that allows a specific location and speed to be added to the
+//* enemy
 var Enemy = function(x, y, speed) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
@@ -14,9 +16,11 @@ var Enemy = function(x, y, speed) {
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
+// This line calculates the speed for each enemy bug on screen
     this.x += this.speed * dt;
+// this resets the location of the bug back to the left side of the screen so the bug scrolls on screen
     if (this.x > 500) {
-      this.x = -50;
+      this.x = -100;
     };
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
@@ -38,7 +42,7 @@ Enemy.prototype.render = function() {
 var allEnemies = [new Enemy (200, 50, 150), new Enemy (200, 220, 100), new Enemy (220, 150, 300)];
 // Place the player object in a variable called player
 var Player = function() {
-
+// Places the boy image at a specific location to start from
     this.sprite = 'images/char-boy.png';
     this.x = 200;
     this.y = 300;
@@ -78,21 +82,22 @@ Player.prototype.winGame = function() {
     character.reset();
   }
 };
-
+// The position I want the player to go back to when the player collides with an enemy
 Player.prototype.reset = function() {
   this.x = 200;
   this.y = 300;
 };
-
+// Used to invoke both collison and winGame functions
 Player.prototype.update = function () {
   player.collision();
   player.winGame()
 
 };
+
 Player.prototype.render = function() {
   ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
-
+// This is a funciton to control the player and keep the player inside of the parameters
 Player.prototype.handleInput = function (input) {
   if (input === "right" && player.x <= 300) {
       this.x = this.x + 100
@@ -104,7 +109,7 @@ Player.prototype.handleInput = function (input) {
     this.y = this.y + 80
   }
 };
-
+// invokes player 
 var player = new Player();
 
 // This listens for key presses and sends the keys to your
