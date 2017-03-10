@@ -10,7 +10,7 @@ var Enemy = function(x, y, speed) {
     this.sprite = 'images/enemy-bug.png';
     this.x = x;
     this.y = y;
-    this.speed = speed
+    this.speed = speed;
 };
 
 // Update the enemy's position, required method for game
@@ -21,7 +21,7 @@ Enemy.prototype.update = function(dt) {
     // this resets the location of the bug back to the left side of the screen so the bug scrolls on screen
     if (this.x > 500) {
         this.x = -100;
-    };
+    }
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
@@ -87,7 +87,7 @@ Player.prototype.collision = function() {
 };
 Player.prototype.winGame = function() {
     //this function is here to reset the character when he reaches the water
-    var character = this
+    var character = this;
     if (this.y <= 50) {
         character.reset();
     }
@@ -118,13 +118,13 @@ Player.prototype.render = function() {
 // This is a funciton to control the player and keep the player inside of the parameters
 Player.prototype.handleInput = function(input) {
     if (input === "right" && player.x <= 300) {
-        this.x = this.x + 100
+        this.x = this.x + 100;
     } else if (input === "left" && player.x >= 100) {
-        this.x = this.x - 100
+        this.x = this.x - 100;
     } else if (input === "up" && player.y >= 0) {
-        this.y = this.y - 80
+        this.y = this.y - 80;
     } else if (input === "down" && player.y <= 300) {
-        this.y = this.y + 80
+        this.y = this.y + 80;
     }
 };
 // invokes player
