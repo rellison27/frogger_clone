@@ -119,13 +119,13 @@ Player.prototype.render = function() {
 // This is a funciton to control the player and keep the player inside of the parameters
 Player.prototype.handleInput = function(input) {
     if (input === "right" && this.x <= 300) {
-        this.x = this.x + 100;
+        this.x += 100;
     } else if (input === "left" && this.x >= 100) {
-        this.x = this.x - 100;
+        this.x -= 100;
     } else if (input === "up" && this.y >= 0) {
-        this.y = this.y - 80;
+        this.y -= 80;
     } else if (input === "down" && this.y <= 300) {
-        this.y = this.y + 80;
+        this.y += 80;
     }
 };
 // invokes player
