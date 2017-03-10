@@ -85,6 +85,7 @@ Player.prototype.collision = function() {
     });
 
 };
+
 Player.prototype.winGame = function() {
     //this function is here to reset the character when he reaches the water
     var character = this;
@@ -109,7 +110,7 @@ Player.prototype.winMessage = function () {
 Player.prototype.update = function() {
     player.collision();
     player.winGame();
-    player.winMessage();
+    //player.winMessage();
 };
 
 Player.prototype.render = function() {
